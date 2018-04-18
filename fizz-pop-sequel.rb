@@ -36,20 +36,25 @@ def pig_latin(sentence)
            return_array.push(one_array)
         else
             for vowel_element in vowel_array
-                if vowel_element == first_letter = i[0] && vowel_element == second_letter = i[1]
-                three_char = i[*0..2]
-                p three_char
-                push_three_chars = i.gsub("#{three_char}", "") + "-#{three_char}ay"
-                return_array.push(push_three_chars)
-                # elsif vowel_element == first_letter = i[0]
-                # one_char = i[0]
-                # push_char = i.gsub("#{one_char}", "") + "-#{one_char}ay"
-                # return_array.push(push_char)
-                # else
-                # vowel_element == first_letter = i[1]
-                # chars = i[*0..1]
-                # push_chars = i.gsub("#{chars}", "") + "-#{chars}ay"
-                # return_array.push(push_chars)
+                first_letter = i[0]
+                second_letter = i[1]
+                if vowel_element != first_letter && vowel_element != second_letter
+                    two_const = i[0..2]
+                    push_two_const = i.gsub("#{two_const}", "") + "-#{two_const}ay"
+                    return_array.push(push_two_const)
+                elsif vowel_element == first_letter && vowel_element == second_letter
+                    three_char = i[0..2]
+                    push_three_chars = i.gsub("#{three_char}", "") + "-#{three_char}ay"
+                    return_array.push(push_three_chars)
+                elsif vowel_element == first_letter = i[0]
+                    one_char = i[0]
+                    push_char = i.gsub("#{one_char}", "") + "-#{one_char}ay"
+                    return_array.push(push_char)
+                else
+                    vowel_element == first_letter = i[1]
+                    chars = i[*0..1]
+                    push_chars = i.gsub("#{chars}", "") + "-#{chars}ay"
+                    return_array.push(push_chars)
                 end
             end
         end
@@ -57,5 +62,5 @@ def pig_latin(sentence)
     puts return_array.uniq.join(' ').capitalize + "."
 end
 
-string = "I can probably make it any sentence aardvark"
+string = "I can probably make it any sentence aardvark scram"
 pig_latin(string)
